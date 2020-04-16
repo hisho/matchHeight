@@ -1,0 +1,51 @@
+$card-gap: 15px;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: $card-gap;
+  color: #304455;
+  border: 1px solid #4fc08d;
+  height: 100%;
+  &__header {
+    margin: -1 * $card-gap -1 * $card-gap 0;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      display: block;
+      padding-top: percentage(3/4);
+    }
+  }
+  &__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    > img {
+      height: 100%;
+      object-position: center center;
+      object-fit: cover;
+    }
+  }
+  &__body {
+    margin-top: $card-gap;
+  }
+  &__title {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: $card-gap;
+  }
+  &__footer {
+    padding-top: $card-gap * 1.5;
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
