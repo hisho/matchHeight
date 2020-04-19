@@ -1,37 +1,42 @@
 class MatchHeight {
   matchHeightElements: HTMLElement[]
   matchHeightElementDataNameList: string[]
-  matchHeightDataElements: HTMLElement[][]
+  matchHeightDataElementsList: HTMLElement[][]
   constructor() {
     this.matchHeightElements = [...document.querySelectorAll<HTMLElement>('[data-match-height]')];
-    this.matchHeightElementDataNameList = this.getElementDataNameList();
-    this.matchHeightDataElements = this.test();
+    this.matchHeightElementDataNameList = this.getElementMatchList(this.matchHeightElements,el => el.dataset.matchHeight);
+    this.matchHeightDataElementsList = this.makeSortElementsLists(this.matchHeightElementDataNameList,this.matchHeightElements, el => el.dataset.matchHeight);
     this.init();
   }
 
   init() {
-    this.matchHeightDataElements.forEach(matchHeightElement => {
-      const heights:number[] = matchHeightElement.map(x => x.clientHeight);
-      const maxHeight:number = Math.max(...heights);
-      matchHeightElement.forEach(x => {
-        console.log(x.offsetTop);
-        (x.style.height = `${maxHeight}px`)
+    this.matchHeightDataElementsList.forEach(matchHeightDataElements => {
+      const ElementHeightLists= matchHeightDataElements.map(x => x.offsetTop);
+      const ElementHeightList = this.makeSortElementsLists(ElementHeightLists,matchHeightDataElements, el => el.offsetTop);
+      ElementHeightList.forEach(x => this.setMaxHeight(x,this.getMaxHeight(x)));
+    });
+  }
+
+  getElementMatchList (elements,func):any[] {
+    const elementMatchList = elements.map(x => func(x));
+    return [...new Set(elementMatchList)]
+  }
+
+  makeSortElementsLists (array,elements:HTMLElement[],func):HTMLElement[][] {
+    return array.map(item => {
+      return elements.filter(element => {
+        if (func(element) === item) return element;
       });
     });
   }
 
-  getElementDataNameList ():string[] {
-    const matchHeightElementDataNames = this.matchHeightElements.map(x => x.dataset.matchHeight);
-    return [...new Set(matchHeightElementDataNames)]
+  getMaxHeight(elements: HTMLElement[]):number {
+    const heights:number[] = elements.map(x => x.clientHeight);
+    return Math.max(...heights);
   }
 
-  test():HTMLElement[][] {
-    return this.matchHeightElementDataNameList.map(dataName => {
-      return this.matchHeightElements.filter(targetElement => {
-        const data:string = targetElement.dataset.matchHeight;
-        if (data === dataName) return targetElement;
-      });
-    });
+  setMaxHeight(elements: HTMLElement[],maxHeight:number) {
+    elements.forEach(element => element.style.height = `${maxHeight}px`)
   }
 }
 
