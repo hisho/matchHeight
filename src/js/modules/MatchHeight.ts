@@ -33,11 +33,7 @@ class MatchHeight {
   }
 
   makeSortElementsLists (array,elements:HTMLElement[],func):HTMLElement[][] {
-    return array.map(item => {
-      return elements.filter(element => {
-        if (func(element) === item) return element;
-      });
-    });
+    return array.map(item => elements.filter(element => item === func(element)));
   }
 
   getMaxHeight(elements: HTMLElement[]):number {
