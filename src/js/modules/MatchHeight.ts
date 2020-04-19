@@ -21,9 +21,9 @@ class MatchHeight {
 
   init() {
     this.matchHeightDataElementsList.forEach(matchHeightDataElements => {
-      const ElementHeightLists= matchHeightDataElements.map(x => x.offsetTop);
-      const ElementHeightList = this.makeSortElementsLists(ElementHeightLists,matchHeightDataElements, el => el.offsetTop);
-      ElementHeightList.forEach(x => this.setMaxHeight(x,this.getMaxHeight(x)));
+      const elementHeightLists = matchHeightDataElements.map(x => x.offsetTop);
+      const elementHeightList = this.makeSortElementsLists(elementHeightLists,matchHeightDataElements,el => el.offsetTop);
+      elementHeightList.forEach(x => this.setMaxHeight(x,this.getMaxHeight(x)));
     });
   }
 
