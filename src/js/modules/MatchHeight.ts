@@ -1,3 +1,13 @@
+/* TODO
+
+入れ子状態でも動くようにする(優先度低)
+リサイズイベントに対応できるようにする。
+byRow: true,
+property: 'height',
+target: null,
+のオプションを用意する
+*/
+
 class MatchHeight {
   matchHeightElements: HTMLElement[]
   matchHeightElementDataNameList: string[]
