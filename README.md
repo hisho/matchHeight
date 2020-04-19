@@ -1,41 +1,23 @@
-# VanillaMatchHeight
+# static template
 
-## インストール
-### install
-```zsh
+## コマンド
+インストール
+```text
 $ npm ci
 ```
-### watch
-```zsh
+***
+ウォッチ
+```text
 $ npm run start
 ```
-
-
-
-## HTML
-```html
-
+***
+サーバーに上げる時(js,css圧縮)
+```text
+$ npm run build
 ```
-
-
-
-## Scss
-```scss
-
+***
+### その他コマンド
+サーバーに上げる状態でウォッチ
+```text
+$ npm run start-pro
 ```
-
-
-
-## DEMO
-* [Basic](https://hishohub.github.io/matchHeight/)
-
-
-
-## Usage
-```javascript
-
-```
-
-
-
-## Options

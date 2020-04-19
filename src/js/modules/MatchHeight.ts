@@ -12,7 +12,10 @@ function _MatchHeight() {
     matchHeightElements.forEach(matchHeightElement => {
       const heights:number[] = matchHeightElement.map(x => x.clientHeight);
       const maxHeight:number = Math.max(...heights);
-      matchHeightElement.forEach(x => (x.style.height = `${maxHeight}px`));
+      matchHeightElement.forEach(x => {
+        console.log(x.offsetTop);
+        (x.style.height = `${maxHeight}px`)
+      });
     });
   }
   if (targetElements) matchHeight();

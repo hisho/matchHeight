@@ -1,31 +1,37 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "start": "npm run development -- --watch",
-        "watch": "npm run development -- --watch",
-        "watch-poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-    },
-    "devDependencies": {
-        "browser-sync": "^2.26.7",
-        "browser-sync-webpack-plugin": "^2.2.2",
-        "copy-webpack-plugin": "^5.1.1",
-        "cross-env": "^7.0.2",
-        "css-mqpacker": "^7.0.0",
-        "import-glob-loader": "^1.1.0",
-        "laravel-mix": "^5.0.4",
-        "resolve-url-loader": "^3.1.1",
-        "sass": "^1.26.3",
-        "sass-loader": "^8.0.2",
-        "ts-loader": "^6.2.2",
-        "typescript": "^3.8.3"
-    },
-    "dependencies": {
-        "axios": "^0.19.2",
-        "deepmerge": "^4.2.2"
-    }
+  "name": "static-template",
+  "version": "1.0.0",
+  "scripts": {
+    "gulp-ejs": "gulp ejs",
+    "gulp-watch": "gulp watch",
+    "start": "run-s gulp-ejs watch-dev",
+    "webpack-build-pro": "webpack --mode production",
+    "webpack-build-dev": "webpack --mode development",
+    "webpack-watch-dev": "webpack -w --mode development",
+    "watch-dev": "run-p gulp-watch webpack-watch-dev server",
+    "webpack-watch-pro": "webpack -w --mode production",
+    "server": "browser-sync start --config bs-config.js"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.7",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.2",
+    "extract-css-chunks-webpack-plugin": "^4.7.4",
+    "gulp": "^4.0.2",
+    "gulp-ejs": "^5.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "import-glob-loader": "^1.1.0",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "ts-loader": "^7.0.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-fix-style-only-entries": "^0.4.0"
+  }
 }
