@@ -1,0 +1,52 @@
+{
+  "cards": [
+    {
+      "title": "タイトル1",
+      "text": "テキスト",
+      "image": "cat01.jpg",
+      "link": "#"
+    },
+    {
+      "title": "タイトル2",
+      "text": "テキスト",
+      "image": "cat02.jpg",
+      "link": "#"
+    },
+    {
+      "title": "タイトル3",
+      "text": "テキスト",
+      "image": "cat03.jpg",
+      "link": "#"
+    },
+    {
+      "title": "タイトル4",
+      "text": "テキスト",
+      "image": "cat04.jpg",
+      "link": "#"
+    },
+    {
+      "title": "タイトル5",
+      "text": "テキスト",
+      "image": "cat05.jpg",
+      "link": "#"
+    },
+    {
+      "title": "タイトル6",
+      "text": "テキスト",
+      "image": "cat06.jpg",
+      "link": "#"
+    },
+    {
+      "title": "タイトル7",
+      "text": "テキスト",
+      "image": "cat07.jpg",
+      "link": "#"
+    },
+    {
+      "title": "タイトル8",
+      "text": "テキスト",
+      "image": "cat08.jpg",
+      "link": "#"
+    }
+  ]
+}

@@ -7,30 +7,38 @@ const param = {
 <%- include(`${param.path}@include/_header`, {param: param}) %>
 <body>
   <main class="main" id="main">
-
     <div class="wrapper">
       <ol class="list">
+        <% cards.forEach((card, index) => { %>
         <li class="list__item">
           <section class="card">
             <div class="card__header">
               <div class="card__img">
-                <img src="./assets/img/cat01.jpg" alt="">
+                <img src="./assets/img/<%- card.image %>" alt="">
               </div>
             </div>
             <div class="card__body">
-              <h2 class="card__title" data-matchHeight="test">タイトル<br>タイトル</h2>
+              <% const randomCardTitle = 1 + Math.floor(Math.random() * 3) %>
+              <h2 class="card__title" data-match-height="test">
+                <% for (let i = 0; i < randomCardTitle; i++) { %>
+                  <%- card.title %><br>
+                <% } %>
+              </h2>
               <div class="card__text">
-                <p>テキストテキスト</p>
+                <p>
+                  <% const randomCardText = 1 + Math.floor(Math.random() * 20) %>
+                  <% for (let i = 0; i < randomCardText; i++) { %>
+                    <%- card.text %>
+                  <% } %>
+                </p>
               </div>
             </div>
             <div class="card__footer">
-              <a class="button" href="">ボタン</a>
+              <a class="button" href="<%- card.link %>">ボタン</a>
             </div>
           </section>
         </li>
-        <li class="list__item"></li>
-        <li class="list__item"></li>
-        <li class="list__item"></li>
+        <% }) %>
       </ol>
     </div>
 
